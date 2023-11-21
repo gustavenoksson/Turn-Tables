@@ -30,6 +30,10 @@ const ProductsWrapper = styled.div`
 export default function Cart() {
 	const [products, setProducts] = useState("");
 
+	const stripeKey = String(import.meta.env.VITE_STRIPE_PUBLIC_KEY);
+	console.log(stripeKey);
+	return;
+
 	useEffect(() => {
         fetchAllProducts()
             .then((data) => {
