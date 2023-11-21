@@ -48,6 +48,8 @@ export default function Cart() {
 
 	async function handleCheckout() {
 		const stripe = await getStripe();
+		console.log(stripe);
+		return;
 
 		const lineItems = Object.values(cartDetails).map((product) => ({
 			"price_data": {
