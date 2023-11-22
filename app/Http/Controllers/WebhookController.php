@@ -27,7 +27,7 @@ class WebhookController extends Controller
         $stripe = new \Stripe\StripeClient(env("VITE_STRIPE_SECRET_KEY"));
 
         // This is your Stripe CLI webhook secret for testing your endpoint locally.
-        $endpoint_secret = 'whsec_8c0f24b16ac3c9e4354cc772c35db7fcd5ddbe7df9fb1b90a2f39b2552135f43';
+        $endpoint_secret = env("STRIPE_ENDPOINT_KEY");
 
         $payload = @file_get_contents('php://input');
         $sig_header = $_SERVER['HTTP_STRIPE_SIGNATURE'];
