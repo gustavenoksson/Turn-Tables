@@ -30,9 +30,8 @@ const ProductsWrapper = styled.div`
 export default function Cart() {
 	const [products, setProducts] = useState("");
 
-	const stripeKey = String(import.meta.env.VITE_STRIPE_PUBLIC_KEY);
-	console.log(stripeKey);
-	return;
+	const testKey = import.meta.env.VITE_TEST_KEY;
+	console.log("Test key:" + testKey);
 
 	useEffect(() => {
         fetchAllProducts()
@@ -52,8 +51,6 @@ export default function Cart() {
 
 	async function handleCheckout() {
 		const stripe = await getStripe();
-		console.log(stripe);
-		return;
 
 		const lineItems = Object.values(cartDetails).map((product) => ({
 			"price_data": {
