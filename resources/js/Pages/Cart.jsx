@@ -93,7 +93,7 @@ export default function Cart() {
 	return (
 		<DefaultLayout>
 					<h1>Your Cart</h1>
-					{cartCount <= 0 && <h2>Your shopping cart appears to be empty.!</h2>}
+					{cartCount <= 0 && <h2>Your shopping cart appears to be empty.</h2>}
 			<PageContentWrapper>
 				<ProductsWrapper>
   					{Object.values(cartDetails).map((item) => {
