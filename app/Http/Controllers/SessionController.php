@@ -11,8 +11,8 @@ class SessionController extends Controller
         $stripe = new \Stripe\StripeClient(env("VITE_STRIPE_SECRET_KEY"));
 
         $session = $stripe->checkout->sessions->create([
-            'success_url' => 'http://localhost:8000/order-confirmed',
-            'cancel_url' => 'http://localhost:8000/cart',
+            'success_url' => 'https://turntables-700c45979554.herokuapp.com/order-confirmed',
+            'cancel_url' => 'https://turntables-700c45979554.herokuapp.com/cart',
             'line_items' => [
                 $lineItems,
             ],
