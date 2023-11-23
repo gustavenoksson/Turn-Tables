@@ -11,7 +11,7 @@ import { WishlistProvider } from './Components/WishlistProvider';
 
 const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
 
-const stripeKey = import.meta.env.VITE_STRIPE_PUBLIC_KEY;
+const stripeKey = String(import.meta.env.VITE_STRIPE_PUBLIC_KEY);
 
 createInertiaApp({
     title: (title) => `${title} - ${appName}`,

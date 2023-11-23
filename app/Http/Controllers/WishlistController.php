@@ -10,11 +10,6 @@ use Inertia\Response;
 
 class WishlistController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
     public function show(Request $request)
     {
         $user = $request->user();
@@ -28,13 +23,18 @@ class WishlistController extends Controller
 
     public function getWishlist(Request $request)
     {
-        $user = $request->user();
+        if(Auth::user()) {
 
-        $productIds = Wishlist::where('user_id', $user->id)->pluck('product_id');
+            $user = $request->user();
 
-        Inertia::share('wishlistItems', $productIds);
+            $productIds = Wishlist::where('user_id', $user->id)->pluck('product_id');
 
-        return response()->json(['productIds' => $productIds]);
+            Inertia::share('wishlistItems', $productIds);
+
+            return response()->json(['productIds' => $productIds]);
+        } else {
+            return response()->json(['productIds' => []]);
+        }
     }
 
     public function addToWishlist(Request $request)
